@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="OUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_OUT" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="OUT" />
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="ASYNC_OUT"/>
+    </root>
+
+    <!--
+        The logging level is read from the ${logging.level} variable set in
+        the src/test/resources/application.properties for test purposes.
+    -->
+    <logger name="spa.simone" level="${logging.level}" additivity="false">
+        <appender-ref ref="ASYNC_OUT"/>
+    </logger>
+
+</configuration>

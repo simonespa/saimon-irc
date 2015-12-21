@@ -1,0 +1,10 @@
+{
+  "name": "saimon-irc",
+    "packaging": {
+        "type":"jar",
+      "requires": ["java-1.8.0-openjdk"],
+      "custom_build_script": ["mvn", "clean", "package"],
+        "client_certs" : "require",
+        "allow_dev_certs" : true
+    }
+}
